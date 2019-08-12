@@ -1,0 +1,84 @@
+git init
+git add hello.py
+git status
+git config --global core.editor notepad
+
+빨강: 버전관리에 등록되지 않았다?
+초록: 버전관리할 파일로 등록됨
+commit = 버전을 만듦
+
+commit 하기 전에
+git config --global user.name "자신의 아이디"
+git config --global user.email "이메일@주소"
+# github 가입한 아이디와 이메일주소로
+
+git config --list 로 core.editor랑 username, email을 확인할 수 있다
+
+==================
+
+git commit 하고 들어갔을 때
+첫 번째 줄: 버전의 이름
+두번째줄은 관례상 지우고
+세번째 줄에
+
+==================
+
+git remote add origin https://~~~.git
+
+git remote 라고 치면 origin이 나옴
+git remote get-url origin 하면 url을 볼 수 있다
+
+remote : 원격저장소의 주소를 등록하는 명령어
+(remote라는 array에 origin이라는 0번째 값)
+
+==========================
+
+github를 잘 쓴다는 건 issue와 request 같은 걸 쓸 줄 아는 것.
+README
+
+git pull 주소
+git pull origin
+
+label : 뭐하려고 만든 이슈냐
+
+branch: 사본을 만드는 것. issue 기반으로 만든다.
+사본이 이상하다 하면 branch를 지워주면 된다.
+
+폴더 copy가 일어나는 건 아닌데, 시스템적으로는 아니지만 git 내부적으로는 복사가 된 것이다.
+git branch >>> branch 이름들 봄
+git branch 이름  >>> 새로운 branch를 만듦
+git checkout 이름  >>> 다른 branch로 이동
+
+git push origin copy
+
+issue number(#number)를 버전 이름에? 써주면 자동으로 commit한 게 issue에 들어간다
+
+add modify wip
+
+
+
+
+
+issue가 정리되었으니까 사본을 원본과 합치기 위해
+pull request를 들어가서 새로 만들었고 compare를 사본 branch 이름으로 했고
+
+공통적인 부분을 건드리면 충돌이 나기 때문에 각자 받아와서 작업을 하는 경우에는 독립적인 부분만 작업한다.
+
+
+
+원격 저장소에서 merge까지 하고 다 닫고 나서 로컬에서 할 일:
+git pull origin master
+git branch -d 브랜치이름
+
+
+
+전체 과정 정리:
+1. Issue 만들기
+2. branch 만들기
+3. branch에 파일 작업
+4. 원격저장소에 branch 올리기
+5. pull request 생성
+6. branch와 원본 병합
+7. branch 삭제, Issue 닫기
+8. 로컬 저장소로 pull
+9. 로컬 저장소에서 branch 삭제
